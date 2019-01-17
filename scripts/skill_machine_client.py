@@ -2,7 +2,9 @@
 
 import sys
 import rospy
-from roboy_communication_cognition.srv import *
+import distutils.util
+from roboy_cognition_msgs.msg import *
+from roboy_skill_machine.srv import StartSkill
 #from roboy_communication_cognition.msg import *
 
 #def start_skill_client(package, executable, node_name, continuous):
@@ -33,7 +35,7 @@ if __name__ == "__main__":
         package = str(sys.argv[1])
         executable = str(sys.argv[2])
         node_name = str(sys.argv[3])
-        continuous = bool(sys.argv[4])
+        continuous = distutils.util.strtobool(sys.argv[4])
     else:
         print usage()
         sys.exit(1)

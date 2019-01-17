@@ -1,0 +1,11 @@
+<launch>
+    <node name="user_tracking" pkg="roboy_skill_machine" type="head_look_at_sound_source_2.py" />
+    
+    <!-- Raspberry Pi name -->
+    <machine name="intel_matrix" address="192.168.0.120" default="true" user="pi" password="Roboy2016" env-loader="/home/pi/ros_catkin_ws/devel/remote_env/env.sh" />
+  
+    <!-- Include remote launch file for raspberry pi here -->
+    <node name="SAM" pkg="rosam" type="SAM.py" output="screen" machine="intel_matrix" />
+    <node name="ODAS" pkg="rosam" type="local_odas.sh" output="screen" machine="intel_matrix" />
+    
+</launch>

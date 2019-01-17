@@ -1,6 +1,6 @@
 string package
 string executable
-string node_name
 bool continuous
+string node_name
 ---
 int8 response

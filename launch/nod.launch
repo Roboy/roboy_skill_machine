@@ -1,0 +1,3 @@
+<launch>
+    <node name="nod" pkg="roboy_skill_machine" type="nod.py" />
+</launch>

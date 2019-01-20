@@ -48,16 +48,10 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   AudioData.msg
-#	AudioInfo.msg
-#	DirectionVector.msg
-#	FaceCoordinates.msg
-#	NewFacialFeatures.msg
-#	SpeechSynthesis.msg
-#	AudioLocation.msg
-# )
+ add_message_files(
+    FILES
+    SkillNode.msg
+ )
 
 ## Generate services in the 'srv' folder
  add_service_files(

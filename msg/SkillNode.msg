@@ -1,0 +1,3 @@
+string node_name
+string node_executable
+string node_package

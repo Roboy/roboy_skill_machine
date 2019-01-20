@@ -1,6 +1,7 @@
-string package
-string executable
+string skill_name
+string launch_package
+string launch_file
 bool continuous
-string node_name
+SkillNode[] node_list
 ---
 int8 response

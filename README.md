@@ -31,6 +31,13 @@ simulation (see here: https://cardsflow.readthedocs.io/en/latest/Usage/0_install
     ```
     rosrun roboy_skill_machine skill_machine.py
     ```
+## Running Skill Machine
+If you are running ROS on multiple machines, Skill Machine must be running on the master. On the master machine, please ensure that the ROS_MASTER_URI setting is *not* set to localhost. The ROS_MASTER_URI settings on other machines must be set to http://MASTER:11311. If necessary, update the /etc/hosts file of the remote machines to include the master machine. For more information on ROS connectivity, see here: http://wiki.ros.org/ROS/NetworkSetup.
+
+Once you've configured your network settings, Skill Machine can be started with the following command:
+```
+$ rosrun roboy_skill_machine skill_machine.py
+```
 ## Adding Skills
 
 ### Including Bondpy in the Skill Script

@@ -133,7 +133,7 @@ def handle_kill_skill(request):
     try:
         kill_skill(request.node_name)
     except Exception as e:
-        rospy.logerror("Catched expection while kill_skill")
+        rospy.logerr("Catched expection while kill_skill")
         return 0
     return 1
 

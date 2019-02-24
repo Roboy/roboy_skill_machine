@@ -9,7 +9,7 @@ import os
 import subprocess
 import roboy_cognition_msgs.msg
 from roboy_skill_machine.msg import SkillNode
-from roboy_skill_machine.srv import StartSkill
+from roboy_skill_machine.srv import StartSkill, KillSkill
 
 
 class Skill:
@@ -129,11 +129,27 @@ def remove_node(node_name):
     del node_dict[node_name]
 
 
+def handle_kill_skill(request):
+    try:
+        kill_skill(request.node_name)
+    except Exception as e:
+        rospy.logerror("Catched expection while kill_skill")
+        return 0
+    return 1
+
+
+def kill_skill(node_name):
+    # two steps, first remove the node from the dict
+    del skill_dict[node_name]
+    # second kill the node via rosnode kill
+    os.system("rosnode kill /" + node_name)
+
+
 # def handle_terminate_skill(request):
 #    terminate_skill(request.package, request.executable, request.node_name)
-
-
-# def terminate_skill(package, executable, node_name):
+#
+#
+# def terminate_skill(package, executable, noyde_name):
 #    for i in range(len(skill_list)):
 #        if (node_name == skill_list[i].node_name):
 #            skill_list[i].process.stop()
@@ -148,6 +164,7 @@ def main():
     node_dict = {}
     rospy.init_node('roboy_skill_machine')
     s = rospy.Service('start_skill', StartSkill, handle_start_skill)
+    k = rospy.Service("kill_skill", KillSkill, handle_kill_skill)
     # t = rospy.Service('terminate_skill', TerminateSkill, handle_terminate_skill)
     while not rospy.is_shutdown():
         rospy.sleep(10.)

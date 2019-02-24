@@ -5,14 +5,14 @@ import rospy
 from std_msgs.msg import String
 from bondpy import bondpy
 
-rospy.init_node('talker', anonymous=True)
-
-bond = bondpy.Bond("skill_machine_bonds", "simple_publisher_bond")
-bond.start()
-
 
 def talker():
     pub = rospy.Publisher('simple_publisher', String, queue_size=10)
+    rospy.init_node('talker', anonymous=True)
+
+    bond = bondpy.Bond("skill_machine_bonds", "simple_publisher_bond")
+    bond.start()
+
     rate = rospy.Rate(10)  # 10hz
     while not rospy.is_shutdown():
         hello_str = "hello world %s" % rospy.get_time()

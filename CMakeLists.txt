@@ -57,6 +57,7 @@ find_package(catkin REQUIRED COMPONENTS
  add_service_files(
    FILES
    StartSkill.srv
+   KillSkill.srv
  )
 
 ## Generate actions in the 'action' folder

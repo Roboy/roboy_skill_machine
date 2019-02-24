@@ -130,6 +130,12 @@ def remove_node(node_name):
 
 
 def handle_kill_skill(request):
+    """
+    callback of the kill_skill service, kills the given skill
+
+    :param request: of type KillSkill, only contains the name of the node to kill
+    :return: int value, indicating if it worked(1) or not(0)
+    """
     try:
         kill_skill(request.node_name)
     except Exception as e:
@@ -142,6 +148,11 @@ def handle_kill_skill(request):
 
 
 def kill_skill(node_name):
+    """
+    actual method killing a skill
+
+    :param node_name: the name of the skill to kill
+    """
     # two steps, first mark the node as "ok to die"
     node_dict[node_name].continuous = False
 

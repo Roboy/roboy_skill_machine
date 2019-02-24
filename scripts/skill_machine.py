@@ -143,7 +143,7 @@ def handle_kill_skill(request):
 
 def kill_skill(node_name):
     # two steps, first remove the node from the dict
-    del skill_dict[node_name]
+    node_dict[node_name].continuous = False
     # second kill the node via rosnode kill
     os.system("rosnode kill /" + node_name)
 

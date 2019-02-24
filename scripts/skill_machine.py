@@ -134,7 +134,7 @@ def handle_kill_skill(request):
     callback of the kill_skill service, kills the given skill
 
     :param request: of type KillSkill, only contains the name of the node to kill
-    :return: int value, indicating if it worked(1) or not(0)
+    :return:        int value, indicating if it worked(1) or not(0)
     """
     try:
         kill_skill(request.node_name)

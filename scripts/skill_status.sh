@@ -5,7 +5,7 @@ source ~/catkin_ws/devel/setup.bash
 output=$(rostopic echo -n 1 /skill_machine_bonds | grep "active")
 
 if [[ $output = *"True"* ]]; then
-    echo "it's till on"
+    return 1
 else
-    echo "it's already dead dude, leave it"
+    return 0
 fi

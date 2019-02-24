@@ -1,0 +1,3 @@
+<launch>
+    <node name="simple_publisher" pkg="roboy_skill_machine" type="simple_publisher.py" />
+</launch>

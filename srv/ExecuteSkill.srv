@@ -1,0 +1,6 @@
+string skill_name
+string command
+bool continuous
+SkillNode[] node_list
+---
+int8 response

@@ -12,7 +12,7 @@ from roboy_skill_machine.msg import SkillNode
 from roboy_skill_machine.srv import LaunchSkill
 from roboy_skill_machine.srv import ExecuteSkill
 from roboy_skill_machine.srv import TerminateSkill
-from roboy_communication_cognition.msg import *
+#from roboy_communication_cognition.msg import *
 
 # Class to hold all relevant data for skills
 class Skill:

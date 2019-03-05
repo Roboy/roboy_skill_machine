@@ -9,7 +9,7 @@ from roboy_skill_machine.msg import SkillNode
 from roboy_skill_machine.srv import LaunchSkill
 from roboy_skill_machine.srv import TerminateSkill
 from roboy_skill_machine.srv import ExecuteSkill
-from roboy_communication_cognition.msg import *
+#from roboy_communication_cognition.msg import *
     
 
 def launch_skill_client(skill_name, launch_package, launch_file, continuous, node_tuple):

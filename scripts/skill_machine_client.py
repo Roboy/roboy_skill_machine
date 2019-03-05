@@ -10,16 +10,6 @@ from roboy_skill_machine.srv import LaunchSkill
 from roboy_skill_machine.srv import TerminateSkill
 from roboy_skill_machine.srv import ExecuteSkill
 from roboy_communication_cognition.msg import *
-
-#def start_skill_client(package, executable, node_name, continuous):
-#    pub = rospy.Publisher("startSkill", StartSkillMsg)
-#    rospy.init_node('start_skill_client', anonymous=True)
-#    msg = StartSkillMsg()
-#    msg.package = package
-#    msg.executable = executable
-#    msg.node_name = node_name
-#    msg.continuous = continuous
-#    pub.publish(msg)
     
 
 def launch_skill_client(skill_name, launch_package, launch_file, continuous, node_tuple):
@@ -48,9 +38,6 @@ def execute_skill_client(skill_name, command, continuous, node_tuple):
     rospy.wait_for_service('execute_skill')
     try:
         node_list = []
-        #print(node_tuple)
-        #print(node_tuple[0])
-        #print(node_tuple[0][0])
         for node in node_tuple:
             node_msg = SkillNode(node_name=node[0], node_executable=node[1], node_package=node[2], node_machine=node[3])
             node_list.append(node_msg)
@@ -61,8 +48,7 @@ def execute_skill_client(skill_name, command, continuous, node_tuple):
         print("Service call failed: %s"%e)
 
 def usage():
-    #return "%s [skill_name, launch_package, launch_file, continuous, node_list]"%sys.argv[0]
-    return "I'll get back to this. In the meantime, you're bad and you should feel bad."
+    return "Incorrect command or formatting. Please see the appropriate use one of the following:\n\n*Launch from launch file:\nlaunch [skill name] [launch file package] [launch file] [continuous] [node: ([name] [executable] [package] [machine])]\n\n*Execute from executable file:\nexecute [skill name] [command] [continuous] [node: ([name] [executable] [package] [machine])]\n\n*Terinate skill:\nterminate [skill name]"
 
 if __name__ == "__main__":
     if (len(sys.argv) == 7 and str(sys.argv[1]) == "launch"):

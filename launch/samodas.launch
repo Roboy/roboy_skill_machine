@@ -1,6 +1,6 @@
 <launch>
     <!-- Raspberry Pi name -->
-    <machine name="matrix_pi" address="192.168.0.227" default="true" user="pi" password="Roboy2016" env-loader="/home/pi/ros_catkin_ws/devel/env.sh" />
+    <machine name="matrix_pi" address="192.168.0.101" default="true" user="pi" env-loader="/home/pi/workspace/devel/remote_env.sh" />
   
     <!-- Include remote launch file for raspberry pi here -->
     <node name="SAM" pkg="rosam" type="SAM.py" output="screen" machine="matrix_pi" />

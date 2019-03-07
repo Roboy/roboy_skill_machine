@@ -18,7 +18,6 @@ ROS_MASTER_URI = "http://192.168.0.127:11311"
 
 class Skill:
     def __init__(self, skill_name, launch_package, launch_file, continuous, node_list):
-        print("New Skill")
         self.skill_name = skill_name
         self.launch_package = launch_package
         self.launch_file = launch_file
@@ -27,11 +26,9 @@ class Skill:
         self.add_nodes(node_list)
 
     def add_nodes(self, node_list):
-        print("Add nodes to skill")
         for node in node_list:
             if node.node_name not in node_dict:
                 bond = create_bond(node.node_name + "_bond")
-                #print(bond.is_broken())
                 new_node = Node(node.node_name, node.node_executable, node.node_package, node.node_machine, self.continuous, bond)
                 node_dict[node.node_name] = new_node
             node_dict[node.node_name].skill_name_list.append(self.skill_name)
@@ -42,7 +39,6 @@ class Skill:
 
 class Node:
     def __init__(self, node_name, node_executable, node_package, node_machine, continuous, bond):
-        print("New node")
         self.node_name = node_name
         self.node_executable = node_executable
         self.node_package = node_package
@@ -50,7 +46,6 @@ class Node:
         self.continuous = continuous
         self.bond = bond
         self.skill_name_list = []
-        #print(self.bond.is_broken())
 
     def __str__(self):
         return str(self.__dict__)
@@ -104,17 +99,13 @@ def create_bond(node_id):
     bond = bondpy.Bond("skill_machine_bonds", node_id)
     rospy.sleep(10.)
     bond.start()
-    #print(bond.is_broken())
     return bond
 
 
 def check_nodes_still_running():
     items_to_remove = []
     for node_name in node_dict:
-        print(node_name)
-        print(node_dict[node_name].bond.is_broken())
         if (node_dict[node_name].bond.is_broken() and node_dict[node_name].continuous == True):
-            #print(bond.is_broken())
             restart_node(node_name)
         elif (node_dict[node_name].bond.is_broken() and node_dict[node_name].continuous == False):
             items_to_remove.append(node_name)
@@ -134,7 +125,6 @@ def restart_node(node_name):
         command = "rosrun {0} {1}".format(node_dict[node_name].node_package, node_dict[node_name].node_executable)
     else:
         command = "ssh {0} 'export ROS_MASTER_URI={1}; export ROS_IP={2}; rosrun {3} {4}'".format(node_dict[node_name].node_machine, ROS_MASTER_URI, node_dict[node_name].node_machine.split('@', 1)[-1], node_dict[node_name].node_package, node_dict[node_name].node_executable)
-        #print(command)
     p = subprocess.Popen(command, shell=True)
     state = p.poll()
     if state is None:

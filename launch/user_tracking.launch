@@ -1,5 +1,5 @@
 <launch>
-    <node name="user_tracking" pkg="roboy_skill_machine" type="head_look_at_sound_source_2.py" />
+    <node name="user_tracking" pkg="roboy_skill_machine" type="head_look_at_sound_source.py" />
     
     <!-- Raspberry Pi name -->
     <machine name="matrix_pi" address="192.168.0.114" default="true" user="pi" env-loader="/home/pi/workspace/devel/remote_env.sh" />

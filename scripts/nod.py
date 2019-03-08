@@ -17,19 +17,15 @@ def main():
     data = 0.0
     rospy.loginfo(data)
     pub.publish(data)
-    time.sleep(10)
-    data = 0.3
+    time.sleep(1)
+    data = 0.1
     rospy.loginfo(data)
     pub.publish(data)
-    time.sleep(10)
-    data = 0.0
+    time.sleep(1)
+    data = -0.1
     rospy.loginfo(data)
     pub.publish(data)
-    time.sleep(10)
-    data = -0.3
-    rospy.loginfo(data)
-    pub.publish(data)
-    time.sleep(10)
+    time.sleep(1)
     data = 0.0
     rospy.loginfo(data)
     pub.publish(data)

@@ -61,11 +61,20 @@ def callback(data):
     global new_goal
     sound_sources = len(data.x)
     if sound_sources>0:
-        random_source = random.randint(0,sound_sources-1)
-        rospy.loginfo_throttle(1,"there are " + str(sound_sources) + " sound sources, choosing " + str(random_source))
-        location[0] = data.x[random_source]
-        location[1] = data.y[random_source]
-        location[2] = data.z[random_source]
+        #random_source = random.randint(0,sound_sources-1)
+        source = data.energy.index(max(data.energy))
+        rospy.loginfo_throttle(1,"there are " + str(sound_sources) + " sound sources, choosing " + str(source))
+        location[0] = 0
+	location[1] = -data.y[source]-0.1
+	location[2] = -data.x[source]
+	if location[1] > 0.12:
+		location[1] = 0.12
+	if location[1] < -0.25:
+		location[1] = -0.25
+	if location[2] > 0.5:
+		location[2] = 0.5
+	if location[2] < -0.5:
+		location[2] = -0.5
 
         new_goal  = True
 

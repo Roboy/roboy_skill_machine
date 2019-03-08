@@ -161,13 +161,15 @@ def terminate_skill(skill_name):
         if node_dict[node_name].skill_name_list == []:
             node_dict[node_name].bond.break_bond()
             node_dict[node_name].bond.shutdown()
-            del node_dict[node_name]
             if (node_dict[node_name].node_machine == "local" or node_dict[node_name].node_machine == "localhost"):
                 command = "rosnode kill {0}".format("/" + node_name)
             else:
                 command = "ssh {0} 'export ROS_MASTER_URI={1}; export ROS_IP={2}; rosnode kill {3}'".format(node_dict[node_name].node_machine, ROS_MASTER_URI, node_dict[node_name].node_machine.split('@', 1)[-1], "/" + node_name)
             p = subprocess.Popen(command, shell=True)
             state = p.poll()
+            #node_dict[node_name].bond.break_bond()
+            #node_dict[node_name].bond.shutdown()
+            del node_dict[node_name]
             #if state is None:
             #    pass
             #elif state < 0:

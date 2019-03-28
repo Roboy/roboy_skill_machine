@@ -1,0 +1,4 @@
+<launch>
+    <param name="base_path" value="/home/missxa/Documents/HPF/" />
+    <node name="audioplayer" pkg="sound_play" type="replay.py" output="screen" />
+</launch>

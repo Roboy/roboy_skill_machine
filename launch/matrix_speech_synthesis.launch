@@ -1,0 +1,8 @@
+<launch>
+    
+    <!-- Raspberry Pi name -->
+    <machine name="192.168.0.222" address="192.168.0.222" default="true" user="pi" env-loader="/home/pi/workspace/devel/remote_env.sh" />
+
+    <node pkg="speech_synthesis" type="tts_server.py" name="speech_synthesis"  machine="192.168.0.222"/>
+
+</launch>

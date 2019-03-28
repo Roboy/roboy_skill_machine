@@ -1,0 +1,3 @@
+<launch>
+    <node name="face_oracle" pkg="face_oracle" type="webcam_video_processor.py" respawn="false" output="screen" />
+</launch>

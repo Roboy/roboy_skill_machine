@@ -66,5 +66,14 @@ You must add a version of your launch file to the "launch" folder in Skill Machi
     <node name="NODE NAME" pkg="PACKAGE NAME" type="EXECUTABLE" machine="REMOTE MACHINE NAME" />
 </launch>
 ```
+
+You will additionally need to (replace username and IP in the commands below)
+```
+ssh-copy-id pi@102.168.0.225
+ssh-keyscan -H 192.168.0.225 >> ~/.ssh/known_hosts
+```
+
+Example `env-loader` for `roslaunch` can be found in `remote-env.sh` in the root of this repository. 
+
 Please refer to the documentation on how to create a roslaunch launch file for more detailed documentation on creating the
 launch file here: http://wiki.ros.org/roslaunch/XML

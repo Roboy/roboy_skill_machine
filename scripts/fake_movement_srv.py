@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import rospy
 import actionlib
 from roboy_control_msgs.msg import PerformMovementAction
@@ -18,7 +19,7 @@ class RoboyAction(object):
        
         
 
-rospy.init_node('fibonacci')
+rospy.init_node('fake_movement')
 server1 = RoboyAction("shoulder_left_movement_server")
 server2 = RoboyAction("shoulder_right_movement_server")
 rospy.spin()

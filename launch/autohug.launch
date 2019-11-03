@@ -70,5 +70,5 @@
   </node>
 
   <node pkg="roboy_skill_machine" type="hug_detector.py" name="hug_detector" output="screen"/>
-  <node pkg="roboy_skill_machine" type="fake_movement_srv.py" name="fake_movement_srv" output="screen"/>
+  <!-- <node pkg="roboy_skill_machine" type="fake_movement_srv.py" name="fake_movement_srv" output="screen"/> -->
 </launch>

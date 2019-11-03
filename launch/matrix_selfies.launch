@@ -8,7 +8,7 @@
 
     <node name="roboy_snapchat_filter" pkg="roboy_snapchat_filter" type="snapchat_server.py" output="screen" machine="192.168.0.225"/>
 
-    <node name="selfie_hotwords" pkg="roboy_snapchat_filter" type="hotwords.py" output="screen" machine="192.168.0.225"/>
+<!--    <node name="selfie_hotwords" pkg="roboy_snapchat_filter" type="hotwords.py" output="screen" machine="192.168.0.225"/>-->
 
     <node name="matrix_led_control" pkg="led_control" type="leds.py" output="screen" machine="192.168.0.225"/>
 

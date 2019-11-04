@@ -63,12 +63,20 @@ class HugDetector():
 		return new_data	
 
 	def cb(self,msg):
+            if rospy.get_param('trajectory_active'):
+                rospy.loginfo('not my turn')
+                self.close_frames = 0
+            if not rospy.get_param('trajectory_active'):
                 if self.first_hug or (self.clients[1].get_result() and self.clients[0].get_result()):
                     self.hug_done = True
                     rospy.set_param('trajectory_active', False)
 		if self.first_hug or ((time.time() - self.last_hug_timestamp > self.recovery_period) and self.hug_done):	
-			if self.close_frames == 15:
-				self.first_hug = False
+                        #if self.close_frames == 15 and rospy.get_param('trajectory_active'):
+                        #    self.close_frames = 0
+                        #    rospy.loginfo('skipping hug')
+                        if self.close_frames == 15 and not rospy.get_param('trajectory_active'):
+				rospy.loginfo('doing hug')
+                                self.first_hug = False
 				self.do_hug = True
 				self.dohug()
 				self.last_hug_timestamp = time.time()

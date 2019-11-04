@@ -1,3 +1,4 @@
+#!/usr/bin/python 
 import rospy
 import actionlib
 from roboy_control_msgs.msg import PerformMovementsAction, PerformMovementsGoal

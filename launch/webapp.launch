@@ -1,0 +1,10 @@
+<launch>
+
+    <node name="webapp_websocket" pkg="rosbridge_server" type="rosbridge_websocket">	
+    	<param name="port" value="9091"/>
+    	<param name="ssl" value="true" />
+    	<param name="certfile" value="/home/roboy/.https-serve/server.crt" />
+    	<param name="keyfile" value="/home/roboy/.https-serve/server.key"/>
+
+   	</node>
+</launch>

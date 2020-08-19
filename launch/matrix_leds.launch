@@ -1,7 +1,7 @@
 <launch>
     
     <!-- Raspberry Pi name -->
-    <machine name="192.168.0.222" address="192.168.0.222" default="true" user="pi" env-loader="/home/pi/workspace/devel/remote_env.sh" />
+    <machine name="192.168.0.224" address="192.168.0.224" default="true" user="pi" env-loader="/home/pi/workspace/devel/remote_env.sh" />
 
-    <node name="leds" pkg="led_control" type="leds.py" output="screen" machine="192.168.0.222" />
+    <node name="chest_leds" pkg="led_control" type="leds.py" output="screen" machine="192.168.0.224" />
 </launch>

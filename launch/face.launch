@@ -1,4 +1,4 @@
 <launch>
-    <node name="unity_face" pkg="roboy_face" type="unity_face.py" respawn="false" output="screen" />
-    <node name="rosbridge" pkg="rosbridge_server" type="rosbridge_websocket" />
+    <node name="unity_face" pkg="roboy_face" type="unity_face.py" respawn="false" output="screen" /> 
+    <node name="face_websocket" pkg="rosbridge_server" type="rosbridge_websocket" />
 </launch>

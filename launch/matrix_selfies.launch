@@ -1,4 +1,6 @@
 <launch>
+
+   <node name="action_proxy" pkg="roboy_skill_machine" type="action_middlelayer.py" respawn="false" output="screen" />
     
     <!-- Raspberry Pi name -->
     <machine name="192.168.0.225" address="192.168.0.225" default="true" user="pi" env-loader="/home/pi/workspace/devel/remote_env.sh" />
